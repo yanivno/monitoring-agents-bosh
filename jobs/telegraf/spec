@@ -1,9 +1,27 @@
 ---
 name: telegraf
 
-templates: {}
+templates:
+  ctl.erb: bin/ctl
+  telegraf.conf.erb: config/telegraf.conf 
 
 packages:
 - telegraf
 
-properties: {}
+properties:
+  influxdb_agent_interval:
+    description: "TBD"
+    default: "30s"
+  influxdb_output_retention_policy:
+    description: "TBD"
+    default: "30_days"
+  influxdb_output_timeout:
+    description: "TBD"
+    default: "5s"
+  influxdb_telegraf:
+    description: "TBD" 
+    default:
+    - url: "http://influxdb-server1:8086"
+      db: "influxdb-server1-db"
+    - url: "https://influxdb-server2:8086"
+      db: "influxdb-server2-db"

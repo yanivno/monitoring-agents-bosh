@@ -17,7 +17,9 @@ instance_groups:
   - name: telegraf
     release: monitoring-agents
     properties:
-      port: 5140
+      influxdb_telegraf:
+      - url: "http://192.168.178.118:8086"
+        db: "server1-db"
   vm_type: nano
   stemcell: default
   networks:
