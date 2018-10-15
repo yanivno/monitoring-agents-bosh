@@ -1,0 +1,31 @@
+---
+name: monitoring-agents-test
+
+releases:
+- {name: monitoring-agents, version: latest}
+
+stemcells:
+- alias: default
+  os: ubuntu-trusty
+  version: latest
+
+instance_groups:
+- name: monitoring-agents
+  instances: 1
+  azs: [az01]
+  jobs:
+  - name: telegraf
+    release: monitoring-agents
+    properties:
+      port: 5140
+  vm_type: nano
+  stemcell: default
+  networks:
+  - name: infrastructure
+
+update:
+  canaries: 1
+  max_in_flight: 3
+  canary_watch_time: 15000-30000
+  update_watch_time: 15000-300000
+

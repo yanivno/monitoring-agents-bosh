@@ -1,0 +1,9 @@
+---
+name: telegraf
+
+templates: {}
+
+packages:
+- telegraf
+
+properties: {}
