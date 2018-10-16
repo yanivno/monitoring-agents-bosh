@@ -17,6 +17,7 @@ instance_groups:
   - name: telegraf
     release: monitoring-agents
     properties:
+      influxdb_agent_interval: "10s"
       influxdb_telegraf:
       - url: "http://192.168.178.118:8086"
         db: "server1-db"
