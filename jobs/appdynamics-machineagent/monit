@@ -1,0 +1,5 @@
+check process appdynamics-machineagent
+  with pidfile /var/vcap/sys/run/appdynamics-machineagent/pid
+  start program "/var/vcap/jobs/appdynamics-machineagent/bin/ctl start"
+  stop program "/var/vcap/jobs/appdynamics-machineagent/bin/ctl stop"
+  group vcap

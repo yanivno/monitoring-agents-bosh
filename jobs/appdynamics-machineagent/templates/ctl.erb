@@ -1,0 +1,56 @@
+#!/bin/bash
+
+set -eu
+
+JOB_NAME=appdynamics-machineagent
+CONF_DIR="/var/vcap/jobs/${JOB_NAME}/config/"
+
+RUN_DIR="/var/vcap/sys/run/${JOB_NAME}"
+LOG_DIR="/var/vcap/sys/log/${JOB_NAME}"
+PIDFILE="${RUN_DIR}/pid"
+
+export APPDYNAMICS_CONTROLLER_HOST_NAME="<%= p('appdynamics_controller_host_name') %>"
+export APPDYNAMICS_CONTROLLER_PORT="<%= p('appdynamics_controller_port') %>"
+export APPDYNAMICS_CONTROLLER_SSL_ENABLED="<%= p('appdynamics_controller_ssl_enabled') %>"
+export APPDYNAMICS_AGENT_ACCOUNT_NAME="<%= p('appdynamics_agent_account_name') %>"
+export APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY="<%= p('appdynamics_agent_account_access_key') %>"
+export APPDYNAMICS_AGENT_APPLICATION_NAME="<%= p('appdynamics_agent_application_name') %>"
+export APPDYNAMICS_SIM_ENABLED="<%= p('appdynamics_sim_enabled') %>"
+export APPDYNAMICS_DOCKER_ENABLED="<%= p('appdynamics_docker_enabled') %>"
+
+<% if p('appdynamics_docker_enabled') %>
+export DOCKER_HOST="<%= p('appdynamics_docker_host') %>"
+
+[ -h /var/run/docker.sock ] || ln -s /var/vcap/data/sys/run/docker/docker.sock /var/run/docker.sock
+<% end %>
+
+case $1 in
+
+  start)
+    mkdir -p "$RUN_DIR" "$LOG_DIR"
+    chown -R vcap:vcap "$RUN_DIR" "$LOG_DIR"
+
+    echo $$ > "$PIDFILE"
+
+    cd "/var/vcap/packages/${JOB_NAME}"
+
+    exec /var/vcap/packages/${JOB_NAME}/bin/machine-agent \
+      -d \
+      -p "$PIDFILE" \
+      -Dlog4j.configuration=file:/var/vcap/jobs/appdynamics-machineagent/config/log4j.xml \
+      -Djava.io.tmpdir=/var/vcap/data/tmp \
+      >>  "$LOG_DIR/${JOB_NAME}.stdout.log" \
+      2>> "$LOG_DIR/${JOB_NAME}.stderr.log"
+    ;;
+
+  stop)
+    kill -9 `cat $PIDFILE`
+    rm -f $PIDFILE
+
+    ;;
+
+  *)
+    echo "Usage: ctl {start|stop}" ;;
+
+esac
+

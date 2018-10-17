@@ -1,0 +1,46 @@
+---
+name: appdynamics-machineagent
+
+templates:
+  ctl.erb: bin/ctl
+  log4j.xml.erb: config/log4j.xml
+
+packages:
+- appdynamics-machineagent
+
+properties:
+  appdynamics_controller_host_name:
+    desription: "TBD"
+    default: localhost
+
+  appdynamics_controller_port:
+    description: "TBD"
+    default: 8090
+
+  appdynamics_controller_ssl_enabled:
+    description: "TBD"
+    default: true
+ 
+  appdynamics_agent_account_access_key:
+    description: "TBD"
+    default: account_key
+
+  appdynamics_agent_application_name:
+    description: "TBD"
+    default: application_name
+
+  appdynamics_agent_account_name:
+    description: "TBD"
+    default: customer1
+
+  appdynamics_sim_enabled:
+    description: "TBD"
+    default: true
+
+  appdynamics_docker_enabled:
+    description: "TBD"
+    default: true
+
+  appdynamics_docker_host:
+    description: Place where to find the docker.sock file on the machine that the agent runs
+    default: /var/vcap/data/sys/run/docker/docker.sock

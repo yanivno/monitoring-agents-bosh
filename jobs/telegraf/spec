@@ -7,6 +7,7 @@ templates:
 
 packages:
 - telegraf
+- appdynamics-machineagent
 
 properties:
   influxdb_agent_interval:

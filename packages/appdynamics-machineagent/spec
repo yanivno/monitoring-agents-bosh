@@ -1,0 +1,7 @@
+---
+name: appdynamics-machineagent
+
+dependencies: []
+
+files:
+- appdynamics/appdynamics-java-agent.zip 

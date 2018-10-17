@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -eu
+
+# extract 'appdynamics/appdynamics-java-agent.zip'
+pushd appdynamics
+  unzip appdynamics-java-agent.zip 'appdynamics-java-*/machineagent/*'
+
+  find appdynamics-java-*/machineagent \
+    -mindepth 1 \
+    -maxdepth 1 \
+    -exec mv {} "${BOSH_INSTALL_TARGET}" \;
+popd
+  
+# ensure executable is set for machineagent itself
+find "${BOSH_INSTALL_TARGET}/bin/" \
+  -type f \
+  -exec chmod +x {} \;  
+
+# ensure local java binaries are also executable
+JAVA_BIN_PATH="${BOSH_INSTALL_TARGET}/jre/bin"
+find "$JAVA_BIN_PATH" \
+  -not -name '*.asc' \
+  -exec chmod +x {} \;
+

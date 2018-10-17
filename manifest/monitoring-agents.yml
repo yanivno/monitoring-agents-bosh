@@ -21,6 +21,16 @@ instance_groups:
       influxdb_telegraf:
       - url: "http://192.168.178.118:8086"
         db: "server1-db"
+  - name: appdynamics-machineagent
+    release: monitoring-agents
+    properties:
+      appdynamics_controller_host_name: gandhi2018101700061915.saas.appdynamics.com
+      appdynamics_controller_port: 443
+      appdynamics_controller_ssl_enabled: true
+      appdynamics_agent_account_name: gandhi2018101700061915
+      appdynamics_agent_account_access_key: xxxxxxx
+      appdynamics_agent_application_name: monitoring-agent-tests
+      appdynamics_docker_enabled: false
   vm_type: nano
   stemcell: default
   networks:

@@ -1,5 +1,5 @@
 releases:
-- {name: monitoring-agents, version: 0+dev.14}
+- {name: monitoring-agents, version: 0+dev.36}
 
 addons:
 - name: monitoring-agents
@@ -11,5 +11,19 @@ addons:
       influxdb_telegraf:
       - url: "http://192.168.178.118:8086"
         db: "server1-db"
+  - name: appdynamics-machineagent
+    release: monitoring-agents
+    properties:
+      appdynamics_controller_host_name: gandhi2018101700061915.saas.appdynamics.com
+      appdynamics_controller_port: 443
+      appdynamics_controller_ssl_enabled: true
+      appdynamics_agent_account_name: gandhi2018101700061915
+      appdynamics_agent_account_access_key: xxxxxx
+      appdynamics_agent_application_name: pks-cluster01
+      appdynamics_docker_enabled: true
+      appdynamics_sim_enabled: false
   include:
     deployments: [service-instance_a034c619-3395-44b7-9f92-2eb7928328bd]
+    jobs:
+    - name: docker
+      release: docker
