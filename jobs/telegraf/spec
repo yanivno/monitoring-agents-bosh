@@ -24,5 +24,11 @@ properties:
     default:
     - url: "http://influxdb-server1:8086"
       db: "influxdb-server1-db"
+      username: "user"
+      password: "password"
+      user_agent: "telegraf"
     - url: "https://influxdb-server2:8086"
       db: "influxdb-server2-db"
+      username: "user"
+      password: "password"
+      user_agent: "telegraf"

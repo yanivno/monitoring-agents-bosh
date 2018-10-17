@@ -1,0 +1,33 @@
+releases:
+- {name: monitoring-agents, version: 0+dev.5}
+
+addons:
+- name: monitoring-agents
+  jobs:
+  - name: telegraf
+    release: monitoring-agents
+    properties:
+      influxdb_agent_interval: "10s"
+      influxdb_output_retention_policy: "default"
+      influxdb_telegraf:
+      - url: "http://appdynamics.preprod.cloud.local.dub:8086"
+        db: "PKS-Sandbox_telegraf"
+        username: "grafana"
+        password: "grafana"
+        user_agent: "telegraf"
+  - name: appdynamics-machineagent
+    release: monitoring-agents
+    properties:
+      appdynamics_controller_host_name: sh-preprod-appdynamics.dub
+      appdynamics_controller_port: 80
+      appdynamics_controller_ssl_enabled: false
+      appdynamics_agent_account_name: "customer1"
+      appdynamics_agent_account_access_key: "17dc4fa4-11ee-4331-988c-1f26a7b3c71b"
+      appdynamics_agent_application_name: "Slotomania Preprod"
+      appdynamics_docker_enabled: true
+      appdynamics_sim_enabled: false
+  include:
+    deployments: [service-instance_2cb93bf2-a296-4e61-abd9-d388c613a8d6]
+    jobs:
+    - name: docker
+      release: docker

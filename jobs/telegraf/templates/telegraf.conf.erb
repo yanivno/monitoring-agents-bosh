@@ -21,6 +21,9 @@
   retention_policy = "<%= p('influxdb_output_retention_policy') %>"
   timeout = "<%= p('influxdb_output_timeout') %>"
   write_consistency = "any"
+  username = "<%= server['username'] %>"
+  password = "<%= server['password'] %>"
+  user_agent = "<%= server['user_agent'] %>"
 <% end %>
 
 # Read metrics about cpu usage
