@@ -1,1 +1,2 @@
-local-blobstore filter=lfs diff=lfs merge=lfs -text
+local-blobstore/appdynamics-java-agent.zip filter=lfs diff=lfs merge=lfs -text
+local-blobstore/telegraf-1.8.1_linux_amd64.tar.gz filter=lfs diff=lfs merge=lfs -text
