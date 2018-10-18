@@ -1,24 +1,52 @@
-# Create BOSH release
-**Note:** When working on a BOSH release always work in the release root directory.
+# monitoring-agents-boshrelease
+BOSH release that installs monitoring agents like
+- Telegraf
+- Appdynamicas Machine Agent
 
-To create a development release (dirty git state) run `bosh create-release --force`
-To create a final release run (clean git state) `bosh create-release`
-
-After creating the release upload it using `bosh upload-release`
-
-**TODO**: Find a way how to share the blobs. At the moment they are not uploaded and distributed via `local-blobstore`
+## Creating a development bosh release
 ```
-$ bosh blobs
-telegraf/telegraf-1.8.1_linux_amd64.tar.gz	13 MiB	(local)	b898f6cf0b3f990c75bcb775ac14189baad6d55d	
+bosh create release --force
+bosh upload release
 ```
 
-# Create runtime config
+### Deploying to a Bosh Director
+Sample deployment that deploys the monitoring agents on a instance group as well a as a runtime config can be found in the `manifest` directory.
+
+```
+bosh -d monitoring-agents-test deploy manifest/monitoring-agents.xml
+```
+
+## Creating a final BOSH release
+
+1.  create bosh final release (requires s3 credentials in `config/final.yml`)
+```
+export VERSION=x
+bosh create-release --final --version=$VERSION --tarball=releases/monitoring-agents/-$VERSION.tgz
+```
+
+1. commit and push changes
+```
+git add releases .final_builds/
+git commit -m"Release $VERSION"
+git tag v$VERSION
+git push origin master
+git push --tags
+```
+
+1. Create a release from the new tag and upload the tarball `releases/filebeat/filebeat-$VERSION.tgz`.
+
+It is helpful to include a `releases` snippet showing how to include this release into a deployment. To generate the sha of the tarball blob:
+```
+shasum releases/monitoring-agents/monitoring-agents-$VERSION.tgz
+```
+
+## Create runtime config
 
 Create a runtime config based per PKS cluster. To specify the target cluster use the BOSH deployment name `service-instance_CLUSTERUUID`
 
 ```
 releases:
-- {name: monitoring-agents, version: 0+dev.14}
+- {name: monitoring-agents, version: 1}
 
 addons:
 - name: monitoring-agents
