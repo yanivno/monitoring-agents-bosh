@@ -33,7 +33,7 @@ git push origin master
 git push --tags
 ```
 
-1. Create a release from the new tag and upload the tarball `releases/filebeat/filebeat-$VERSION.tgz`.
+1. Create a release from the new tag and upload the tarball `releases/monitoring-agents/monitoring-agents-$VERSION.tgz`.
 
 It is helpful to include a `releases` snippet showing how to include this release into a deployment. To generate the sha of the tarball blob:
 ```
