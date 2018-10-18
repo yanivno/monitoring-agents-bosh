@@ -11,7 +11,7 @@
   flush_jitter = "5s"
   debug = false
   quiet = false
-  hostname = "<%= spec.address %>"
+  hostname = "<%= spec.ip %>"
   omit_hostname = false
 
 <% p('influxdb_telegraf').each do |server| %>

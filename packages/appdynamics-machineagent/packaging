@@ -17,6 +17,11 @@ find "${BOSH_INSTALL_TARGET}/bin/" \
   -type f \
   -exec chmod +x {} \;  
 
+# ensure executable is set for machineagent itself
+find "${BOSH_INSTALL_TARGET}/" \
+  -name '*.sh' \
+  -exec chmod +x {} \;  
+
 # ensure local java binaries are also executable
 JAVA_BIN_PATH="${BOSH_INSTALL_TARGET}/jre/bin"
 find "$JAVA_BIN_PATH" \
