@@ -1,5 +1,5 @@
 releases:
-- {name: monitoring-agents, version: 1}
+- {name: monitoring-agents, version: 2}
 
 addons:
 - name: monitoring-agents
