@@ -4,4 +4,4 @@ name: telegraf
 dependencies: []
 
 files: 
-- telegraf/telegraf-1.8.1_linux_amd64.tar.gz # https://dl.influxdata.com/telegraf/releases/telegraf-1.8.1_linux_amd64.tar.gz
+- telegraf/telegraf-1.8.2_linux_amd64.tar.gz 

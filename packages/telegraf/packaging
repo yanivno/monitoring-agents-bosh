@@ -1,11 +1,11 @@
 set -e
 
-# unpack telegraf-1.8.1_linux_amd64.tar.gz
+# unpack telegraf-1.8.2_linux_amd64.tar.gz
 
-tar xzf telegraf/telegraf-1.8.1_linux_amd64.tar.gz
+tar xzf telegraf/telegraf-1.8.2_linux_amd64.tar.gz
 
 pushd telegraf
-	# copy telegraf/usr/bin/telegraf to packages
+	# copy telegraf/telegraf to packages
 	mkdir -p "${BOSH_INSTALL_TARGET}/bin/"
-	cp usr/bin/telegraf "${BOSH_INSTALL_TARGET}/bin/"
+	cp telegraf "${BOSH_INSTALL_TARGET}/bin/"
 popd

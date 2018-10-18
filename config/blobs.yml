@@ -6,3 +6,7 @@ telegraf/telegraf-1.8.1_linux_amd64.tar.gz:
   size: 13790605
   object_id: 73231a08-51b5-494c-6d97-b53122cb64a6
   sha: b898f6cf0b3f990c75bcb775ac14189baad6d55d
+telegraf/telegraf-1.8.2_linux_amd64.tar.gz:
+  size: 13767493
+  object_id: 21a24d1a-8d38-4238-4490-e82bca0a6c99
+  sha: eb8472167e16e41df26658261ea93026d899a25b
