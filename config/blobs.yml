@@ -2,6 +2,10 @@ appdynamics/appdynamics-java-agent.zip:
   size: 184125106
   object_id: a57ba6d0-1e5b-4be3-51bc-63649cdb60de
   sha: b280bc4adc7a2fcb3be60314c5566148e332c70a
+telegraf-test/telegraf-1.7.0_linux_amd64.tar.gz:
+  size: 10250624
+  object_id: 08b50e7a-ab17-4df9-6b5f-cd44925afe3a
+  sha: 47f44d2d84a4fdad480569777a9d4da45589c20a
 telegraf/telegraf-1.8.1_linux_amd64.tar.gz:
   size: 13790605
   object_id: 73231a08-51b5-494c-6d97-b53122cb64a6

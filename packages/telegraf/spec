@@ -3,5 +3,6 @@ name: telegraf
 
 dependencies: []
 
-files: 
-- telegraf/telegraf-1.8.2_linux_amd64.tar.gz 
+files:
+- telegraf-test/telegraf-1.7.0_linux_amd64.tar.gz 
+#- telegraf/telegraf-1.8.2_linux_amd64.tar.gz 
