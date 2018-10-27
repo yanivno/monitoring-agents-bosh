@@ -1,0 +1,33 @@
+name: monitoring-agents
+version: "7"
+commit_hash: aa207d7
+uncommitted_changes: false
+jobs:
+- name: appdynamics-machineagent
+  version: 97e55f242e5c5eb3ded1fadcc4cdb2bcb592eec4
+  fingerprint: 97e55f242e5c5eb3ded1fadcc4cdb2bcb592eec4
+  sha1: 77f993808f709791a74339da47a0b509137f6e54
+- name: telegraf
+  version: 3e58bc802472ba281b10e72f88461931a37559d7
+  fingerprint: 3e58bc802472ba281b10e72f88461931a37559d7
+  sha1: 42cf38501fe4bbd167a6da04d6d842c9c248a0e6
+- name: zabbix_agentd
+  version: 3127327fe0a04440a7ebefbf2d6d8d70bdb83fcd
+  fingerprint: 3127327fe0a04440a7ebefbf2d6d8d70bdb83fcd
+  sha1: 0c3e9e557da6a1c773b4e8baf8f60089058903fa
+packages:
+- name: appdynamics-machineagent
+  version: 922bad2de56cb61196d506d4d8445dda7b15170e
+  fingerprint: 922bad2de56cb61196d506d4d8445dda7b15170e
+  sha1: 5558013d3eadce597a6cee48da682f6ab400a323
+  dependencies: []
+- name: telegraf
+  version: 5d33b5eeaddaebc2c820ec7b03c13a19ae054f28
+  fingerprint: 5d33b5eeaddaebc2c820ec7b03c13a19ae054f28
+  sha1: bf037515e694afb104155c61cb03f9a197f00e7e
+  dependencies: []
+- name: zabbix_agentd
+  version: 7fb764bcd3f5b8bef69f693b1208b082cd9777ff
+  fingerprint: 7fb764bcd3f5b8bef69f693b1208b082cd9777ff
+  sha1: 9dafb11b27980b44ba8589860f5798580594bb1b
+  dependencies: []
