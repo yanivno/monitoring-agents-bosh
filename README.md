@@ -20,7 +20,7 @@ bosh -d monitoring-agents-test deploy manifest/monitoring-agents.xml
 
 1. If new blobs were uploaded upload them using `bosh upload-blobs` and `git commit` the changes.
  
-1. create bosh final release (requires s3 credentials in `config/final.yml`)
+2.. create bosh final release (requires s3 credentials in `config/final.yml`)
 ```
 export VERSION=x
 bosh create-release --final --version=$VERSION --tarball=releases/monitoring-agents/-$VERSION.tgz
