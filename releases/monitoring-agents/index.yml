@@ -1,6 +1,14 @@
 builds:
+  4d094a15-5299-495e-4582-51be6bfc9f95:
+    version: "3"
   5e77c5c4-8c33-4344-630e-b6404ffa13ea:
     version: "2"
+  8a6e3a50-4557-4daa-4d70-5529bb25382b:
+    version: "6"
+  8f3db92f-145a-428e-46fd-db681046ff42:
+    version: "4"
+  935de04c-7ff8-4455-4bea-311d6d50f8eb:
+    version: "5"
   f68ee8bf-c11a-4f11-660b-3f0982a8a39b:
     version: "1"
 format-version: "2"

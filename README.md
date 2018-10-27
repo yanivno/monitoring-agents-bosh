@@ -26,6 +26,8 @@ export VERSION=x
 bosh create-release --final --version=$VERSION --tarball=releases/monitoring-agents/-$VERSION.tgz
 ```
 
+#EDIT: IMPORTANT: run upload-release again
+
 1. commit and push changes
 ```
 git add releases .final_builds/

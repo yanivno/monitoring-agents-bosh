@@ -1,0 +1,4 @@
+---
+name: zabbix_agentd
+files:
+- zabbix/zabbix.tar

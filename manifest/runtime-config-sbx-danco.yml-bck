@@ -1,7 +1,8 @@
-instance_groups:
-- azs:
-  - Sandbox-PKS-Management
-  instances: 1
+releases:
+- {name: monitoring-agents, version: 6}
+
+addons:
+- name: monitoring-agents
   jobs:
   - name: telegraf
     release: monitoring-agents
@@ -23,26 +24,10 @@ instance_groups:
       appdynamics_agent_account_name: "customer1"
       appdynamics_agent_account_access_key: "17dc4fa4-11ee-4331-988c-1f26a7b3c71b"
       appdynamics_agent_application_name: "Slotomania Preprod"
-      appdynamics_docker_enabled: false
+      appdynamics_docker_enabled: true
       appdynamics_sim_enabled: false
-  - name: zabbix_agentd
-    release: monitoring-agents
-  name: monitoring-agents
-  networks:
-  - name: PKS-Sandbox-Management-Network
-  stemcell: default
-  vm_type: nano
-name: monitoring-agents-test-danco
-releases:
-- name: monitoring-agents
-  version: 6+dev.13
-stemcells:
-- alias: default
-  os: ubuntu-xenial
-  version: latest
-update:
-  canaries: 1
-  canary_watch_time: 15000-30000
-  max_in_flight: 3
-  update_watch_time: 15000-300000
-
+  include:
+    deployments: [service-instance_40b02f2b-4da6-44c5-8558-f0d122f0ae84]
+    jobs:
+    - name: docker
+      release: docker

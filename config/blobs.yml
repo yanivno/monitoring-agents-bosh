@@ -14,3 +14,7 @@ telegraf/telegraf-1.8.2_linux_amd64.tar.gz:
   size: 13767493
   object_id: 21a24d1a-8d38-4238-4490-e82bca0a6c99
   sha: eb8472167e16e41df26658261ea93026d899a25b
+zabbix/zabbix.tar:
+  size: 2498560
+  object_id: c8ff829a-18ee-482b-5a87-7bec500432f9
+  sha: 50c7b2a2ac18ae94407130b0d3c25431ecb5421f

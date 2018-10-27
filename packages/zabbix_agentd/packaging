@@ -1,0 +1,7 @@
+# abort script on any command that exit with a non zero value
+set -e
+
+tar xvf zabbix/zabbix.tar
+(
+  cp -r {bin,sbin,conf} ${BOSH_INSTALL_TARGET}
+)
