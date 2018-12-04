@@ -1,5 +1,5 @@
 releases:
-- {name: monitoring-agents, version: 6}
+- {name: monitoring-agents, version: 7}
 
 addons:
 - name: monitoring-agents
@@ -26,11 +26,10 @@ addons:
       appdynamics_agent_application_name: "Slotomania Preprod"
       appdynamics_docker_enabled: true
       appdynamics_sim_enabled: false
-  - name: zabbix
+  - name: zabbix_agentd
     release: monitoring-agents
 
   include:
-    deployments: [service-instance_40b02f2b-4da6-44c5-8558-f0d122f0ae84]
     jobs:
     - name: docker
       release: docker
