@@ -1,4 +1,4 @@
-et -e
+set -e
 
 tar xzf telegraf-test/telegraf-1.7.0_linux_amd64.tar.gz
 
